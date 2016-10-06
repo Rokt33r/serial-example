@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'/>
+  <title>Serial</title>
+</script>
+</head>
+<body>
+
+  <div id='content'></div>
+
+  <script src="./node_modules/react/dist/react.js"></script>
+  <script src="./node_modules/react-dom/dist/react-dom.js"></script>
+  <script src="./node_modules/redux/dist/redux.js"></script>
+  <script src="./node_modules/react-redux/dist/react-redux.js"></script>
+  <script type='text/javascript'>
+    const electron = require('electron')
+    electron.webFrame.setZoomLevelLimits(1, 1)
+    const _ = require('lodash')
+    var scriptUrl = _.find(electron.remote.process.argv, (a) => a === '--hot')
+      ? 'http://localhost:8080/assets/main.js'
+      : '../compiled/main.js'
+    var scriptEl = document.createElement('script')
+    scriptEl.setAttribute('type', 'text/javascript')
+    scriptEl.setAttribute('src', scriptUrl)
+    document.body.appendChild(scriptEl)
+  </script>
+</body>
+</html>
