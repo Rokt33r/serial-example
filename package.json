@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "hot": "electron ./app.js --hot",
     "webpack": "webpack-dev-server --hot --inline --config webpack.config.js",
+    "postinstall": "electron-rebuild",
     "rebuild": "electron-rebuild"
   },
   "keywords": [],
